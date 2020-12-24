@@ -10,7 +10,7 @@ spring:
           uri: git@github.com:xcxchzp/springcloud-config.git
           search-paths:
             - springcloud-config
-      label: master #啊啊
+      label: master
 eureka:
   client:
     service-url:
