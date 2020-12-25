@@ -1,0 +1,33 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master  #分支名称
+      name: config #配置文件名称
+      profile: dev #配置文件后缀名称
+      uri: http://localhost:3344
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+#暴露监控端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+#当服务端配置更改后需要运维人员执行更新命令，使得客户端在不用重启的情况下刷新拉取到最新的服务配置信息
+#命令：curl -X POST "http://localhost:3355/actuator/refresh"
+#@RefreshScope 这种模式只能实现手动输入命令达到配置的更新，要想实现大批量微服务一次自动更新则需用到springCloud bus 消息总线

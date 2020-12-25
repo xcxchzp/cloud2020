@@ -7,11 +7,24 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:xcxchzp/springcloud-config.git
+          uri: https://github.com/xcxchzp/springcloud-config
           search-paths:
             - springcloud-config
-      label: master
+          username: 454241171@qq.com
+          password: hzpjay3125190
 eureka:
   client:
     service-url:
       defaultZone:  http://localhost:7001/eureka
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
